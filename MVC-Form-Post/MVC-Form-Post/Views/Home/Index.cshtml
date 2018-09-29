@@ -1,0 +1,47 @@
+﻿@model MVC_Form_Post.Models.PersonModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <div class="container">
+        <div>
+            <div class="form-group">
+                <h3>Person Details</h3>
+            </div>
+            <div class="form-group">
+                <h5>PersonId: </h5>
+                <div>
+                    @Html.TextBoxFor(m => m.PersonId, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <h5>Name: </h5>
+                <div>
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <h5>Gender: </h5>
+                <div>
+                    @Html.DropDownListFor(m => m.Gender, new List<SelectListItem>
+                    { new SelectListItem{Text="Male", Value="M"},
+                        new SelectListItem{Text="Female", Value="F"}}, "Please select", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <h5>City: </h5>
+                <div>
+                    @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    <input type="submit" value="Submit" class="btn btn-primary"/>
+                </div>
+            </div>
+        </div>
+    </div>
+}
